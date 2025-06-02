@@ -11,4 +11,37 @@ Se agrega código
 No se modifica código
 ***
 
-// ejemplo
+
+// Good
+interface Report {
+  generate();
+}
+
+class PDFGenerator implements Report {
+  generate(){
+    console.log("reporte PDF");
+  }
+}
+
+class CSVGenerator implements Report {
+  generate(){
+    console.log("reporte CSV");
+  }
+}
+
+class ReportGenerator {
+  generateReport(report: Report){
+    report.generate();
+  }
+}
+
+// Bad
+class ReportGenerator {
+  generateReport(report: string){
+    if (report === "PDF") {
+      console.log("reporte PDF");
+    } else if(report === "CSV") {
+      console.log("reporte CSV");
+    }
+  }
+}

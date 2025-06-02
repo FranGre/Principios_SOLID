@@ -13,4 +13,41 @@ Si tienes más de 1 responsabilidad el código se vuelve:
 - Menos tolerante a cambios
 ***
 
-// ejemplo
+
+// Good
+class UserService {
+
+      createUser(user){
+        console.log("creando user");
+      }
+
+      deleteUser(userId){
+        console.log("eliminando user");
+      }
+
+    }
+
+class EmailSender {
+
+  sendEmail(){
+    console.log("enviando email");
+  }
+
+}
+
+// Bad
+class UserService {
+
+  createUser(user){
+    console.log("creando user");
+  }
+
+  delelteUser(userId){
+    console.log("eliminanod user");
+  }
+
+  sendEmail(){
+    console.log("envianod email");
+  }
+
+}
